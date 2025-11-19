@@ -4,10 +4,11 @@ extends CharacterBody3D
 var state_machine_playback
 @onready var spring_arm_pivot = $JohnGoodfixed/SpringArmPivot
 @onready var spring_arm = $JohnGoodfixed/SpringArmPivot/SpringArm3D
+@onready var cam: Camera3D = $JohnGoodfixed/SpringArmPivot/SpringArm3D/Camera3D
 
-const SPEED = 4.0
+const SPEED = 2.0
 const SENSITIVITY = 0.05
-const SPRINT_MULTIPLIER = 1.4
+const SPRINT_MULTIPLIER = 2.5
 
 @export_group("headbob")
 @export var headbob_frequency := 2.0

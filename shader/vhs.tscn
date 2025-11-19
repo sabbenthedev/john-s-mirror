@@ -84,19 +84,18 @@ void fragment(){
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o1qi6"]
 resource_local_to_scene = true
 shader = SubResource("Shader_hqquw")
-shader_parameter/resolution_x = 820
-shader_parameter/resolution_y = 420
+shader_parameter/resolution_x = 1152
+shader_parameter/resolution_y = 648
 shader_parameter/color_bit_depth = 64
 shader_parameter/dither_strength = 0.03
 shader_parameter/jitter_amount = 0.002
-shader_parameter/jitter_speed = 1.2
-shader_parameter/jitter_frequency = 40.0
-shader_parameter/chromatic_aberration_strength = 0.0
-shader_parameter/vignette_strength = 0.400000019
-shader_parameter/vignette_radius = 1.10000005225
+shader_parameter/jitter_speed = 1.0
+shader_parameter/jitter_frequency = 180.0
+shader_parameter/chromatic_aberration_strength = 0.0050000002375
+shader_parameter/vignette_strength = 0.8
+shader_parameter/vignette_radius = 0.9
 
 [node name="vhs" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,10 +104,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 material = SubResource("ShaderMaterial_o1qi6")
 anchors_preset = 15
 anchor_right = 1.0
