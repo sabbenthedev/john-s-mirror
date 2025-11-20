@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @onready var animation_tree = $AnimationTree
-var state_machine_playback
+var state_machine
 @onready var spring_arm_pivot = $JohnGoodfixed/SpringArmPivot
 @onready var spring_arm = $JohnGoodfixed/SpringArmPivot/SpringArm3D
 @onready var cam: Camera3D = $JohnGoodfixed/SpringArmPivot/SpringArm3D/Camera3D
@@ -26,7 +26,7 @@ var body_turn_speed := 6.0
 func _ready() -> void:
 	# Hiding mouse at the start of the game
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	state_machine_playback = animation_tree.get("parameters/playback")
+	state_machine = animation_tree.get("parameters/playback")
 	
 func _input(event: InputEvent) -> void:
 	# Rotate Camera
@@ -91,12 +91,18 @@ func _physics_process(delta: float) -> void:
 		
 	smoothed_input = smoothed_input.move_toward(target_input, strafe_acceleration * delta)
 	var animvec := Vector2(smoothed_input.x, -smoothed_input.y)
+	
+	var blend_path :=""
+	if target_state == "Walk":
+		blend_path = "parameters/Walk/JohnGoodWalk/blend_position"
+	elif target_state == "Run":
+		blend_path = "parameters/Run/JohnGoodRun/blend_position"
+		
+	animation_tree.set(blend_path, animvec)
 		
 	if current_state != target_state:
-		state_machine_playback.travel(target_state)
+		state_machine.travel(target_state)
 		current_state = target_state
-		
-	animation_tree.set("parameters/%s/blend_position" % target_state, animvec)
 pass
 
 func headbob(headbob_time):
