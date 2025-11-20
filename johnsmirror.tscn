@@ -70,7 +70,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7312851)
 
 [node name="JohnEvil" parent="." instance=ExtResource("4_bt0t6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7451334, 0, -4.133901)
-camera_path = NodePath("")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0005030632, -1.1920929e-07, -0.006552696)

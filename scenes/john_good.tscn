@@ -3705,7 +3705,7 @@ states/Walk/position = Vector2(367, 117)
 transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_4q4yr"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_vcd1p"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_0kjf6")]
 graph_offset = Vector2(-51, 2)
 
-[node name="JohnGood" type="CharacterBody3D"]
+[node name="JohnGood" type="CharacterBody3D" groups=["player"]]
 unique_name_in_owner = true
 script = ExtResource("1_oevke")
 
