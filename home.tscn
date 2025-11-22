@@ -98,7 +98,7 @@
 [ext_resource type="Texture2D" uid="uid://b77btficgai70" path="res://assets/trailer_park/trailer_park_Curtain_01.png" id="96_m71su"]
 [ext_resource type="Texture2D" uid="uid://cnxn3d5gdo0cv" path="res://assets/trailer_park/trailer_park_Curtain.png" id="97_k013p"]
 [ext_resource type="PackedScene" uid="uid://4u23hqmnyl2o" path="res://scenes/john_good.tscn" id="99_ex5rm"]
-[ext_resource type="PackedScene" uid="uid://delu2qjrw6teu" path="res://addons/Mirror3D/Mirror3D.tscn" id="100_e76wc"]
+[ext_resource type="PackedScene" uid="uid://delu2qjrw6teu" path="res://addons/Mirror3D/addons/Mirror3D/Mirror3D.tscn" id="100_e76wc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ex5rm"]
 panorama = ExtResource("1_gk3ay")

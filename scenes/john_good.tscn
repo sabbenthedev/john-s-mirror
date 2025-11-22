@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://4u23hqmnyl2o"]
+[gd_scene load_steps=43 format=4 uid="uid://4u23hqmnyl2o"]
 
 [ext_resource type="Script" uid="uid://mcej1myd7nxj" path="res://character/player/JohnGood/john_good.gd" id="1_oevke"]
 [ext_resource type="Texture2D" uid="uid://bxsl1getigf7r" path="res://character/player/JohnGood/JohnGoodfixed_AnimeChar-color.png" id="2_sbk41"]
@@ -3595,6 +3595,37 @@ _data = {
 &"JohnWalkRight": SubResource("Animation_87s7m")
 }
 
+[sub_resource type="GDScript" id="GDScript_oevke"]
+script/source = "extends Camera3D
+
+@export var mirror_update_interval: float = 0.1
+@export var movement_threshold: float = 0.05
+@export var rotation_threshold: float = 2.0
+
+var time_since_mirror_update: float = 0.0
+var last_position: Vector3
+var last_rotation: Vector3
+
+func _ready() -> void:
+	MirrorManager.set_player_camera(self)
+	last_position = global_position
+	last_rotation = rotation_degrees
+
+func _process(delta: float) -> void:
+	time_since_mirror_update += delta
+	
+	# Check if camera moved or rotated significantly
+	var position_changed = global_position.distance_to(last_position) > movement_threshold
+	var rotation_changed = abs(rotation_degrees.y - last_rotation.y) > rotation_threshold
+	
+	# Update mirrors on interval OR significant movement/rotation
+	if time_since_mirror_update >= mirror_update_interval or position_changed or rotation_changed:
+		time_since_mirror_update = 0.0
+		last_position = global_position
+		last_rotation = rotation_degrees
+		MirrorManager.update_all_mirrors()
+"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f1bg6"]
 animation = &"JohnIdle"
 
@@ -3976,6 +4007,7 @@ spring_length = 0.0
 [node name="Camera3D" type="Camera3D" parent="JohnGoodfixed/SpringArmPivot/SpringArm3D"]
 unique_name_in_owner = true
 fov = 70.0
+script = SubResource("GDScript_oevke")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../JohnGoodfixed")

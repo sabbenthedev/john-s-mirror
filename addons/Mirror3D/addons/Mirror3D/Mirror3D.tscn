@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=3 uid="uid://delu2qjrw6teu"]
 
-[ext_resource type="Script" uid="uid://ctd4r0bvuy052" path="res://addons/Mirror3D/Mirror3D.gd" id="1_mtvun"]
-[ext_resource type="Shader" uid="uid://bjf6fmae00yno" path="res://addons/Mirror3D/Mirror3D.gdshader" id="2_qi7e4"]
+[ext_resource type="Script" uid="uid://ctd4r0bvuy052" path="res://addons/Mirror3D/addons/Mirror3D/Mirror3D.gd" id="1_mtvun"]
+[ext_resource type="Shader" uid="uid://bjf6fmae00yno" path="res://addons/Mirror3D/addons/Mirror3D/Mirror3D.gdshader" id="2_qi7e4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4kaam"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_707dm"]
 noise = SubResource("FastNoiseLite_4kaam")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4kaam"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_upb8i"]
 viewport_path = NodePath("Viewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iv7pg"]
@@ -16,7 +16,7 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_qi7e4")
 shader_parameter/color = Color(0.9, 0.97, 0.94, 1)
-shader_parameter/mirror_texture_linear = SubResource("ViewportTexture_4kaam")
+shader_parameter/mirror_texture_linear = SubResource("ViewportTexture_upb8i")
 shader_parameter/use_mirror_texture_linear = true
 shader_parameter/distortion_texture = SubResource("NoiseTexture2D_707dm")
 shader_parameter/distortion_strength = 0.0
@@ -33,12 +33,12 @@ distortion_texture = SubResource("NoiseTexture2D_707dm")
 size = Vector2i(200, 200)
 
 [node name="Camera" type="Camera3D" parent="Viewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.779233, 3.2440724, 4.267729)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.033915997, -0.03579119, -1.1160867)
 keep_aspect = 0
 projection = 2
-frustum_offset = Vector2(-5.779233, -3.2440724)
-near = 4.317729
-far = 57.882706
+frustum_offset = Vector2(-0.033915997, 0.03579119)
+near = 1.1660867
+far = 51.117176
 
 [node name="Quad" type="MeshInstance3D" parent="."]
 mesh = SubResource("QuadMesh_5i7m6")

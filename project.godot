@@ -14,13 +14,17 @@ config/name="mirror demo"
 run/main_scene="res://johnsmirror.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
+[autoload]
+
+Mirror_Manager="*res://addons/Mirror3D/addons/Mirror3D/MirrorManager.gd"
+
 [debug]
 
 settings/stdout/print_fps=true
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/portals/plugin.cfg")
 
 [input]
 
