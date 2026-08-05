@@ -370,13 +370,11 @@ environment = SubResource("Environment_gwu27")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 1.5, 0.076)
 size = Vector2(3, 3)
 cull_mask = 524287
-max_recursion_depth = 5
 
 [node name="Mirror3D2" parent="mirrors1" instance=ExtResource("1_ws48t")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 24, 1.5, 2.924)
 size = Vector2(3, 3)
 cull_mask = 524287
-max_recursion_depth = 5
 
 [node name="maze" type="Node3D" parent="."]
 
